@@ -64,76 +64,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/03/Spring%20Boot/" class="article-date">
-  <time datetime="2020-03-03T06:24:55.777Z" itemprop="datePublished">2020-03-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/03/Spring%20Boot/">Spring Boot</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="一、配置类"><a href="#一、配置类" class="headerlink" title="一、配置类"></a>一、配置类</h2><p>使用@Configuration注解类</p>
-<h3 id="1-导入额外的配置类"><a href="#1-导入额外的配置类" class="headerlink" title="1. 导入额外的配置类"></a>1. 导入额外的配置类</h3><p>不需要把所有的配置放入单独的一个类中。</p>
-<h4 id="额外配置导入方式"><a href="#额外配置导入方式" class="headerlink" title="额外配置导入方式"></a>额外配置导入方式</h4><ul>
-<li>使用@Import注解导入额外的配置类</li>
-<li>使用@ComponentScan注解自动扫描Spring components，包括@Configuration类</li>
-</ul>
-<h3 id="2-配置方法"><a href="#2-配置方法" class="headerlink" title="2. 配置方法"></a>2. 配置方法</h3><ul>
-<li>XML配置</li>
-</ul>
-<p>如必须使用XML配置，则建议新建一个@Configuration类，然后使用@ImportResource注解加载XML配置文件</p>
-<ul>
-<li>基于Java的配置（推荐）</li>
-</ul>
-<h3 id="3-自动配置"><a href="#3-自动配置" class="headerlink" title="3. 自动配置"></a>3. 自动配置</h3><p>Spring Boot会根据你引入的jar包依赖自动配置你的Spring应用。</p>
-<p><strong><em>启动方式</em></strong>：添加@EnableAutoConfiguration或者@SpringBootApplication注解到你的@Configuration类之一</p>
-<h4 id="3-1-替代自动配置"><a href="#3-1-替代自动配置" class="headerlink" title="3.1 替代自动配置"></a>3.1 替代自动配置</h4><p>可以通过加入”–debug”参数开启调试日志输出到控制台查看目前应用的自动配置</p>
-<h4 id="3-2-禁用特定的自动配置类"><a href="#3-2-禁用特定的自动配置类" class="headerlink" title="3.2 禁用特定的自动配置类"></a>3.2 禁用特定的自动配置类</h4><ul>
-<li>查找到你不需要应用的自动配置类，通过配置@EnableConfiguration的”exclude”参数禁用它。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.jdbc.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span>(proxyBeanMethods = <span class="keyword">false</span>)</span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>(exclude=&#123;DataSourceAutoConfiguration<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">MyConfiguration</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong><em>注意：</em></strong> 如果指定的配置类不在classpath路径中，需指定类的全限定路径</p>
-<ul>
-<li>还可以通过spring.autoconfigure.exclude属性排除</li>
-</ul>
-<h2 id="二、Spring-Beans和依赖注入"><a href="#二、Spring-Beans和依赖注入" class="headerlink" title="二、Spring Beans和依赖注入"></a>二、Spring Beans和依赖注入</h2><p>在使用Spring Boot时可以自由使用符合Spring框架标准的Bean和依赖注入技术。简单来说，我们可以通过@Component注解发现所有Bean和用@Autowired注解做构造函数注入</p>
-<h2 id="三、-SpringBootApplication的使用"><a href="#三、-SpringBootApplication的使用" class="headerlink" title="三、@SpringBootApplication的使用"></a>三、@SpringBootApplication的使用</h2><p>单个@SpringBootApplication注解相当于启用了以下三个注解：</p>
-<ul>
-<li>@EnableAutoConfiguration</li>
-<li>@ComponentScan</li>
-<li>@Configuration</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/03/Spring%20Boot/" data-id="ck7bimfjh0001ywuxhjcyby9d" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/03/hello-world/" class="article-date">
@@ -173,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/03/hello-world/" data-id="ck7bimfj60000ywux0ki36woo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/03/hello-world/" data-id="ck7biuesa0000mouxggxw28ic" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,10 +142,6 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2020/03/03/Spring%20Boot/">Spring Boot</a>
-          </li>
         
           <li>
             <a href="/2020/03/03/hello-world/">Hello World</a>
