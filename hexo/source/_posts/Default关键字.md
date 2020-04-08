@@ -1,0 +1,1 @@
+最近在看String源码时，发现String实现的`CharSequence`接口中竟然由具体的方法实现。接口中不是只能有抽象方法吗？原来jdk8中引入了`default`关键字。
